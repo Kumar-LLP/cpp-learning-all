@@ -16,10 +16,20 @@ second = sec;
      
     void add( time  t1, time t2){
  
-      hour = t1.hour + t2 .hour ;
-      minutes =t1.minutes + t2.minutes ;
+    
       second = t1.second +t2.second;
- 
+     if(second >=60){
+      minutes+=second/60;
+      second=second%60;
+      
+     }
+      minutes =t1.minutes + t2.minutes ;
+      if(minutes >=60){
+      hour+=minutes/60;
+      minutes=minutes%60;
+      
+     }
+      hour = t1.hour + t2 .hour ;
 
     }
     void display (){
