@@ -27,7 +27,7 @@ cout<<"enter the vale of a  :";
 cin>>a;
 check c;
 c.setdata(a);
-   c=-c;
+   c=-c; // or we cam write like c= c.operator-();
 c.display();
 
     return 0;
