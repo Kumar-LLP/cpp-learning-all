@@ -25,10 +25,10 @@ private :
   }
 
   void save (ofstream &fout){
-     fout<<"Name :"<<name<<endl;
-    fout<<" Emplyee ID :"<<employee_id<<endl;
-    fout<<"Age :"<<age<<endl;
-    fout<<"Salary  : "<<salary<<endl;
+     fout<<name<<endl;
+    fout<<employee_id<<endl;
+    fout<<age<<endl;
+    fout<<salary<<endl;
   }
 };
 int main (){
@@ -65,6 +65,7 @@ for(i=0 ; i<num ; i++){
    cin>>salary;
    cin.ignore();
 e[i].setdata(name ,employee_id , age , salary);
+e[i].display();
 e[i].save(fout);
 
 }
@@ -74,17 +75,27 @@ ifstream fin;
 fin.open("check.txt");
 
 int em_id;
+bool found = false ;
 cout<<"Enter the employee id :";
 cin>>em_id;
 
-while (fin>>name , employee_id,age,salary){
+while (getline(fin,name)){
+
+  fin>>employee_id;
+  fin>>age;
+  fin>>salary;
+  fin.ignore();  
  if(employee_id == em_id){
 
-     fout<<"Name :"<<name<<endl;
-    fout<<" Emplyee ID :"<<employee_id<<endl;
-    fout<<"Age :"<<age<<endl;
-    fout<<"Salary  : "<<salary<<endl;
-
+     cout<<"Name :"<<name<<endl;
+    cout<<" Emplyee ID :"<<employee_id<<endl;
+    cout<<"Age :"<<age<<endl;
+    cout<<"Salary  : "<<salary<<endl;
+found = true ;
+break ;
+ }
+ if(!found){
+  cout<<"Error";
  }
 
 }
